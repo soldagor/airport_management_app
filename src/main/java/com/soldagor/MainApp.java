@@ -15,6 +15,7 @@ public class  MainApp {
         airportManager.handle();*/
 
         var context = new ClassPathXmlApplicationContext("context.xml");
+        System.out.println("context status: " + context.isActive());
 
         var airportmanager =
                 (AirportManager) context.getBean("airportManager");

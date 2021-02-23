@@ -4,6 +4,9 @@ public class UserHandler {
 
     private UserValidator userValidator;
 
+    public UserHandler() {
+    }
+
     public UserHandler(UserValidator userValidator) {
         this.userValidator = userValidator;
     }

@@ -4,6 +4,9 @@ public class AirportManager {
     private FlightHandler flightHandler;
     private UserHandler userHandler;
 
+    public AirportManager() {
+    }
+
     public AirportManager(FlightHandler flightHandler, UserHandler userHandler) {
         this.flightHandler = flightHandler;
         this.userHandler = userHandler;

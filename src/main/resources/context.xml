@@ -10,4 +10,10 @@
 <!--    <context:annotation-config/>-->
 <!--    <context:component-scan base-package="com.baeldung.applicationcontext"/>-->
 
+    <bean name="userValidator" class="com.soldagor.UserValidator"></bean>
+    <bean name="userHandler" class="com.soldagor.UserHandler"></bean>
+    <bean name="flightHandler" class="com.soldagor.FlightHandler"></bean>
+    <bean name="airportManager" class="com.soldagor.AirportManager"></bean>
+
+
 </beans>
