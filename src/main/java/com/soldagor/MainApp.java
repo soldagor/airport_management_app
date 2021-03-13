@@ -1,6 +1,7 @@
 package com.soldagor;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.DelegatingMessageSource;
 
 /**
  * dependency management - classic vs now
@@ -17,8 +18,8 @@ public class  MainApp {
         var context = new ClassPathXmlApplicationContext("context.xml");
         System.out.println("context status: " + context.isActive());
 
-        var airportmanager =
-                (AirportManager) context.getBean("airportManager");
+        var airportmanager = (AirportManager) context.getBean(AirportManager.class);
+        var airportmanager2 = (AirportManager) context.getBean(AirportManager.class);
         airportmanager.handle();
     }
 }

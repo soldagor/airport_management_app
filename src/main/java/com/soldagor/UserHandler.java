@@ -1,10 +1,16 @@
 package com.soldagor;
 
-public class UserHandler {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component
+public class UserHandler {
+    @Autowired
+    @Qualifier("targetUserValidator")
     private UserValidator userValidator;
 
-    public UserHandler() {
+    public UserHandler() {  
     }
 
     public UserHandler(UserValidator userValidator) {

@@ -7,13 +7,25 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-<!--    <context:annotation-config/>-->
-<!--    <context:component-scan base-package="com.baeldung.applicationcontext"/>-->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.soldagor"/>
 
-    <bean name="userValidator" class="com.soldagor.UserValidator"></bean>
-    <bean name="userHandler" class="com.soldagor.UserHandler"></bean>
-    <bean name="flightHandler" class="com.soldagor.FlightHandler"></bean>
-    <bean name="airportManager" class="com.soldagor.AirportManager"></bean>
+<!--    <bean name="userValidator" class="com.soldagor.UserValidator"/>-->
 
+<!--    <bean name="userHandler" class="com.soldagor.UserHandler" />-->
+<!--         autowire="byName"/>-->
+<!--        <property name="userValidator" ref="userValidator"></property>-->
+<!--    </bean>-->
+
+<!--    <bean name="flightHandler" class="com.soldagor.FlightHandler"/>-->
+
+<!--    <bean name="airportManager" class="com.soldagor.AirportManager"-->
+<!--          init-method="customInit" lazy-init="true"/>-->
+<!--          autowire="byName"/>-->
+
+<!--          scope="prototype">-->
+<!--        <constructor-arg name="userHandler" ref="userHandler"></constructor-arg>-->
+<!--        <constructor-arg name="flightHandler" ref="flightHandler"></constructor-arg>-->
+<!--    </bean>-->
 
 </beans>
