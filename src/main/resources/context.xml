@@ -10,6 +10,37 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.soldagor"/>
 
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/airport_db"/>
+        <property name="username" value="test"/>
+        <property name="password" value="test"/>
+    </bean>
+
+    <bean id="entityManager"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.soldagor.model"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManager"/>
+    </bean>
+
+</beans>
+
+
+
 <!--    <bean name="userValidator" class="com.soldagor.UserValidator"/>-->
 
 <!--    <bean name="userHandler" class="com.soldagor.UserHandler" />-->
@@ -27,5 +58,3 @@
 <!--        <constructor-arg name="userHandler" ref="userHandler"></constructor-arg>-->
 <!--        <constructor-arg name="flightHandler" ref="flightHandler"></constructor-arg>-->
 <!--    </bean>-->
-
-</beans>
