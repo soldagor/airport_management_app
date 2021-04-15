@@ -1,8 +1,10 @@
 package com.soldagor;
 
+import com.soldagor.service.FlightServiceImpl;
+import com.soldagor.service.api.FlightService;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.DelegatingMessageSource;
-
 import javax.sql.DataSource;
 
 /**
@@ -17,12 +19,15 @@ public class  MainApp {
         AirportManager airportManager = new AirportManager(flightHandler,userHandler);
         airportManager.handle();*/
 
-        var context = new ClassPathXmlApplicationContext("context.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
 
-        System.out.println("context status: " + context.isActive());
+        //System.out.println("context status: " + context.isActive());
 
-        var airportmanager = (AirportManager) context.getBean(AirportManager.class);
-        // var airportmanager2 = (AirportManager) context.getBean(AirportManager.class);
-        airportmanager.handle();
+        FlightService airportManager = (FlightService) context.getBean(FlightService.class);
+        // var airportManager2 = (AirportManager) context.getBean(AirportManager.class);
+        airportManager.createFlight("BV_123");
+        airportManager.createFlight("BC_345");
+        airportManager.createFlight("TM_678");
+        airportManager.createFlight("TX_678");
     }
 }
